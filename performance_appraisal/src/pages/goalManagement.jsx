@@ -1,0 +1,143 @@
+import React, { useState } from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import img from '../assets/images.png';
+
+const GoalManagement = () => {
+  const [goals, setGoals] = useState([
+    { id: 1, title: "Complete Project Report", dueDate: "2025-02-10", status: "completed" },
+    { id: 2, title: "Submit Performance Review", dueDate: "2025-02-15", status: "pending" },
+    { id: 3, title: "Attend Leadership Workshop", dueDate: "2025-02-20", status: "pending" },
+  ]);
+
+  // Function to mark a goal as completed
+  const markAsCompleted = (id) => {
+    setGoals(goals.map(goal => 
+      goal.id === id ? { ...goal, status: "completed" } : goal
+    ));
+  };
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      
+      {/* Navbar */}
+      <Navbar className="bg-white shadow-md p-0 m-0">
+        <Container fluid>
+          <Navbar.Brand href="/" className="flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#3674B5"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-8 h-8"
+            >
+              <path d="M12 2L2 22h20L12 2z" />
+              <path d="M12 6l6 12H6l6-12z" />
+            </svg>
+            <h1 className="text-2xl font-bold text-[#3674B5] ml-2">SkillScale</h1>
+          </Navbar.Brand>
+          <Nav className="ml-auto flex items-center">
+            <Nav.Link href="/home" className="text-gray-700 hover:text-blue-500 px-3">HOME</Nav.Link>
+            <Nav.Link href="/feedback" className="text-gray-700 hover:text-blue-500 px-3">FEEDBACK</Nav.Link>
+            <Nav.Link href="/Appraisal" className="text-gray-700 hover:text-blue-500 px-3">APPRAISAL DASHBOARD</Nav.Link>
+            <Nav.Link href="/Analytics" className="text-gray-700 hover:text-blue-500 px-3">ANALYTICS AND REP</Nav.Link>
+            <Nav.Link href="/review" className="text-gray-700 hover:text-blue-500 px-3">REVIEW</Nav.Link>
+
+            {/* Profile Dropdown */}
+            <NavDropdown
+              title={
+                <img
+                  src={img} // Replace with actual image URL
+                  alt="Profile"
+                  className="rounded-full"
+                  width="40"
+                  height="40"
+                />
+              }
+              id="basic-nav-dropdown"
+              align="end"
+            >
+              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100">Logout</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Container>
+      </Navbar>
+
+      {/* Goal Management Sections */}
+      <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        
+        {/* Completed Goals Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-4 text-green-600">✅ Completed Goals</h2>
+          {goals.filter(goal => goal.status === "completed").length === 0 ? (
+            <p className="text-gray-500">No goals completed yet.</p>
+          ) : (
+            goals.filter(goal => goal.status === "completed").map(goal => (
+              <div key={goal.id} className="p-4 rounded-lg bg-green-50 mb-3 border border-green-100">
+                <p className="font-semibold text-green-800">{goal.title}</p>
+                <p className="text-sm text-gray-500">Completed on: {goal.dueDate}</p>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Pending Goals Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-4 text-yellow-600">⚠️ Pending Goals</h2>
+          {goals.filter(goal => goal.status === "pending").map(goal => (
+            <div key={goal.id} className="p-4 rounded-lg bg-yellow-50 mb-3 border border-yellow-100">
+              <p className="font-semibold text-yellow-800">{goal.title}</p>
+              <p className="text-sm text-gray-500">Due by: {goal.dueDate}</p>
+              
+              {/* Progress Bar */}
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="bg-blue-500 h-2 rounded-full" style={{ width: "50%" }}></div>
+              </div>
+
+              {/* Mark as Completed Button */}
+              <button 
+                onClick={() => markAsCompleted(goal.id)}
+                className="mt-2 bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 transition"
+              >
+                Mark as Completed
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Calendar Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-4 text-gray-800">📅 Goal Completion Calendar</h2>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+            <p className="text-gray-600 mb-2">Upcoming Goals:</p>
+            {goals.map(goal => (
+              <div key={goal.id} className="p-2 border-b border-gray-200">
+                <span className="font-semibold text-gray-700">{goal.dueDate}:</span> {goal.title}
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-white shadow-lg text-black py-6 mt-6">
+        <Container className="text-center">
+          <p className="mb-4">&copy; 2025 SkillScale. All rights reserved.  
+            Contact us: <a href="mailto:info@skillscale.com" className="text-blue-500 hover:text-blue-400">info@skillscale.com</a>
+          </p>
+          <div className="flex justify-center space-x-4">
+            
+            <p className="mb-4">Created By : Jaison T Jacob</p>
+          </div>
+        </Container>
+      </footer>
+
+    </div>
+  );
+};
+
+export default GoalManagement;

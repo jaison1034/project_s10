@@ -21,22 +21,7 @@ const AdminGoalManagement = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Navbar */}
-      <Navbar className="bg-white shadow-md p-0 m-0">
-        <Container fluid>
-          <Navbar.Brand href="/" className="flex items-center">
-            <h1 className="text-2xl font-bold text-[#3674B5] ml-2">SkillScale - Admin</h1>
-          </Navbar.Brand>
-          <Nav className="ml-auto flex items-center">
-            <Nav.Link href="/dashboard" className="text-gray-700 hover:text-blue-500 px-3">DASHBOARD</Nav.Link>
-            <Nav.Link href="/goals" className="text-gray-700 hover:text-blue-500 px-3">GOALS</Nav.Link>
-            <Nav.Link href="/analytics" className="text-gray-700 hover:text-blue-500 px-3">ANALYTICS</Nav.Link>
-            <NavDropdown title={<img src={img} alt="Profile" className="rounded-full" width="40" height="40" />} id="admin-nav-dropdown" align="end">
-              <NavDropdown.Item href="#profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Container>
-      </Navbar>
+      
 
       {/* Goal Management Section */}
       <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -71,12 +56,7 @@ const AdminGoalManagement = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-white shadow-lg text-black py-6 mt-6">
-        <Container className="text-center">
-          <p className="mb-4">&copy; 2025 SkillScale. All rights reserved. Contact us: <a href="mailto:info@skillscale.com" className="text-blue-500 hover:text-blue-400">info@skillscale.com</a></p>
-          <p className="mb-4">Created By: Jaison T Jacob</p>
-        </Container>
-      </footer>
+      
     </div>
   );
 };

@@ -1,28 +1,31 @@
 import { useState } from "react";
 import { FaTachometerAlt, FaBullseye, FaComment, FaChartBar, FaClipboardCheck, FaUsers } from "react-icons/fa";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import { Link, Routes, Route } from "react-router-dom"; // Import Routes and Route
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 // Page Components for routing
 import GoalA from "../pages/adminGoal";
 import FeedbackA from "../pages/feedbackAdmin";
+ // Add a Dashboard component
 
 import img from "../assets/images.png";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("/admin");
 
   const menuItems = [
-    { name: "Dashboard", icon: <FaTachometerAlt />, key: "dashboard", path: "/admin" },
-    { name: "Goal", icon: <FaBullseye />, key: "goal", path: "/goala" },
-    { name: "Feedback", icon: <FaComment />, key: "feedback", path: "/feedbacka" },
-    { name: "Appraisal", icon: <FaClipboardCheck />, key: "appraisal", path: "/Appraisal" },
-    { name: "Analytics", icon: <FaChartBar />, key: "analytics", path: "/Analytics" },
-    { name: "Review", icon: <FaUsers />, key: "review", path: "/review" },
+    { name: "Dashboard", icon: <FaTachometerAlt />, key: "/admin" },
+    { name: "Goal", icon: <FaBullseye />, key: "/goala" },
+    { name: "Feedback", icon: <FaComment />, key: "/feedbacka" },
+    { name: "Appraisal", icon: <FaClipboardCheck />, key: "/appraisal" },
+    { name: "Analytics", icon: <FaChartBar />, key: "/analytics" },
+    { name: "Review", icon: <FaUsers />, key: "/review" },
   ];
 
   const handleTabClick = (path) => {
-    setActiveTab(path); // Update the active tab
+    setActiveTab(path);
+    navigate(path);
   };
 
   return (
@@ -53,12 +56,16 @@ const AdminDashboard = () => {
           <h2 className="text-xl font-bold mb-4">Admin Panel</h2>
           <nav>
             {menuItems.map((item) => (
-              <div key={item.key}>
-                <Link to={item.path} onClick={() => handleTabClick(item.path)} className={`flex items-center space-x-2 p-2 w-full text-left hover:bg-[#2a5a8a] rounded-md ${activeTab === item.path ? "bg-[#2a5a8a]" : ""}`}>
-                  {item.icon}
-                  <span>{item.name}</span>
-                </Link>
-              </div>
+              <button
+                key={item.key}
+                onClick={() => handleTabClick(item.key)}
+                className={`flex items-center space-x-2 p-2 w-full text-left hover:bg-[#2a5a8a] rounded-md ${
+                  activeTab === item.key ? "bg-[#2a5a8a]" : ""
+                }`}
+              >
+                {item.icon}
+                <span>{item.name}</span>
+              </button>
             ))}
           </nav>
         </div>
@@ -68,9 +75,10 @@ const AdminDashboard = () => {
           {/* Page Content */}
           <div className="flex-1 p-6 bg-gray-100">
             <Routes>
+              
               <Route path="/goala" element={<GoalA />} />
               <Route path="/feedbacka" element={<FeedbackA />} />
-              {/* Add other routes here as needed */}
+              {/* Add other routes here */}
             </Routes>
           </div>
 

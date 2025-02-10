@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import img from '../assets/images.png';
 import bimg from '../assets/homeb.jpg';
 import simg from '../assets/home.jpg';
-
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 function HomePage() {
   return (
     <>
@@ -75,14 +75,51 @@ function HomePage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-white-800 text-black py-2">
-        <Container className="text-center">
-          <p className="mb-4 text-black">&copy; 2025 SkillScale. All rights reserved.  Contact us: <a href="mailto:info@skillscale.com" className="text-blue-400">info@skillscale.com</a></p>
-          <div className="flex justify-center space-x-4">
-            <p className="mb-4">Created By : Jaison T Jacob</p>
+      
+      <footer className="bg-gray-900 text-white py-6">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        {/* Company Info */}
+        <div>
+          <h2 className="text-lg font-bold">SkillScale</h2>
+          <p className="mt-2 text-gray-400">Empowering growth through continuous performance tracking.</p>
+        </div>
+
+        {/* Quick Links */}
+        <div className="mb-6 items-center">
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaEnvelope className="mr-2" />
+                info@skillscale.com
+              </li>
+              <li className="flex items-center">
+                <FaPhone className="mr-2" />
+                +1 (234) 567-890
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2">📍</span>
+                <span>123 Business St, Suite 456, City, Country</span>
+              </li>
+            </ul>
           </div>
-        </Container>
-      </footer>
+
+        {/* Contact & Social */}
+        <div>
+          <h3 className="text-lg font-semibold">Connect With Us</h3>
+          <div className="mt-2 flex justify-center md:justify-start space-x-4">
+            <a href="https://facebook.com" className="text-gray-400 hover:text-white"><FaFacebook size={20} /></a>
+            <a href="https://twitter.com" className="text-gray-400 hover:text-white"><FaTwitter size={20} /></a>
+            <a href="https://linkedin.com" className="text-gray-400 hover:text-white"><FaLinkedin size={20} /></a>
+            <a href="mailto:info@skillscale.com" className="text-gray-400 hover:text-white"><FaEnvelope size={20} /></a>
+          </div>
+        </div>
+      </div>
+      
+      {/* Copyright */}
+      <div className="mt-4 text-center text-gray-500 text-sm border-t border-gray-600 pt-6 text-center">
+        &copy; 2025 SkillScale. All Rights Reserved.
+      </div>
+    </footer>
     </>
   );
 }

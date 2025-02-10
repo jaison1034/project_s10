@@ -2,13 +2,15 @@ import './Login.css';
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../assets/login_back.jpg'; // Ensure this image is high-quality
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
     fullName: "",
     password: "",
   });
-
+  const [showPassword, setShowPassword] = useState(false);
+  
   const navigate = useNavigate(); // To redirect after login
 
   // Handle input changes
@@ -101,17 +103,26 @@ const Login = () => {
               />
             </div>
 
-            <div className="mb-6">
+            <div className="mb-6 relative">
               <label className="block text-[#3674B5] font-medium mb-2">Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={loginData.password}
-                onChange={handleChange}
-                placeholder="Enter your password"
-                className="w-full px-4 py-3 border border-[#A1E3F9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#578FCA] transition-all"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleChange}
+                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 border border-[#A1E3F9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#578FCA] transition-all pr-10"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-gray-700"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
             </div>
 
             <button 

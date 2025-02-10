@@ -12,6 +12,7 @@ import Appraisal from './pages/appraisalDashborad';
 import Analytics from './pages/analyticsRep';
 import GoalA from "./pages/adminGoal";
 import FeedbackA from "./pages/feedbackAdmin";
+import AdminR from "./pages/adminReview";
 function App() {
   return (
    <>
@@ -29,6 +30,11 @@ function App() {
       <Route path="/Analytics" element={<Analytics />} />
       <Route path="/goala" element={<GoalA />} />
      <Route path="/feedbacka" element={<FeedbackA />} />
+     <Route path="/admin" element={<AdminDashboard />}>
+          <Route path="goals" element={<GoalA />} />
+          <Route path="feedbacka" element={<FeedbackA />} />
+          <Route path="adminr" element={<AdminR />} />
+        </Route>
     </Routes>
    </Router>
    </>

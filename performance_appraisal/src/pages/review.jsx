@@ -139,12 +139,12 @@ const ReviewPage = () => {
                   <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
                   <ul className="space-y-2">
                     <li className="flex items-center">
-                      <FaEnvelope className="mr-2" />
-                      info@skillscale.com
+                      
+                      📧 info@skillscale.com
                     </li>
                     <li className="flex items-center">
-                      <FaPhone className="mr-2" />
-                      6282645889
+                      
+                      📞 6282645889
                     </li>
                     <li className="flex items-center">
                       <span className="mr-2">📍</span>

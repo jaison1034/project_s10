@@ -26,10 +26,9 @@ const Registration = () => {
       [name]: "",
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     if (formData.password !== formData.confirmPassword) {
       setErrors((prev) => ({
         ...prev,
@@ -37,9 +36,22 @@ const Registration = () => {
       }));
       return;
     }
-
+  
+    // Retrieve existing users from local storage
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  
+    // Add the new user to the list
+    const updatedUsers = [...existingUsers, formData];
+  
+    // Save updated users list to local storage
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  
+    alert("Registration successful!");
+  
+    // Navigate to login page after registration
     navigate("/login");
   };
+  
 
   return (
     <div

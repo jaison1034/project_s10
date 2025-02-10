@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import rImg from '../assets/images.png'
-
+import rImg from '../assets/images.png';
+import bImg from '../assets/review.jpg';
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 const ReviewPage = () => {
   const [completedReviews, setCompletedReviews] = useState([]);
   const [pendingReviews, setPendingReviews] = useState(["John Doe", "Jane Smith"]);
@@ -65,9 +66,10 @@ const ReviewPage = () => {
       </Navbar>
       
       {/* Review Section */}
-      <Container className="my-15">
-        <h2 className="text-2xl font-bold text-center text-[#3674B5] mb-6">Employee Reviews</h2>
-        <div className="grid grid-cols-3 gap-6">
+      <div className="bg-cover bg-center min-h-screen relative pt-4 "
+          style={{ backgroundImage: `url(${bImg})` }}>
+        <h2 className="text-2xl font-bold text-center text-[#3674B5] mb-6 pb-4">Employee Reviews</h2>
+        <div className="grid grid-cols-3 gap-6 pl-4 pr-4">
           {/* Add Review */}
           <div className="p-6 bg-white shadow-lg rounded-lg">
             <h3 className="text-lg font-semibold text-[#3674B5] mb-4">Add Review</h3>
@@ -121,15 +123,54 @@ const ReviewPage = () => {
             )}
           </div>
         </div>
-      </Container>
+      </div>
 
       {/* Footer */}
-      <footer className="bg-white text-black py-4 text-center mt-6">
-        <p className="mb-4">&copy; 2025 SkillScale. All rights reserved. Contact us: <a href="mailto:info@skillscale.com" className="text-blue-400">info@skillscale.com</a></p>
-        <div className="flex justify-center space-x-4">
-          <p className="mb-4">Created By : Jaison T Jacob</p>
-        </div>
-      </footer>
+      <footer className="bg-gray-900 text-white py-2 items-center">
+            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+              {/* Company Info */}
+              <div>
+                <h2 className="text-lg font-bold">SkillScale</h2>
+                <p className="mt-2 text-gray-400">Empowering growth through continuous performance tracking.</p>
+              </div>
+      
+              {/* Quick Links */}
+              <div className="mb-6 items-center">
+                  <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <FaEnvelope className="mr-2" />
+                      info@skillscale.com
+                    </li>
+                    <li className="flex items-center">
+                      <FaPhone className="mr-2" />
+                      6282645889
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-2">📍</span>
+                      <span>CyberPark, Kozhikode, India</span>
+                    </li>
+                  </ul>
+                </div>
+      
+              {/* Contact & Social */}
+              <div className="items-center">
+                <h3 className="text-lg font-semibold">Connect With Us</h3>
+                <div className="mt-6 flex space-x-4 items-center">
+                  <a href="https://facebook.com" className="text-gray-400 hover:text-white items-center"><FaFacebook size={20} /></a>
+                  <a href="https://twitter.com" className="text-gray-400 hover:text-white"><FaTwitter size={20} /></a>
+                  <a href="https://linkedin.com" className="text-gray-400 hover:text-white"><FaLinkedin size={20} /></a>
+                  <a href="mailto:info@skillscale.com" className="text-gray-400 hover:text-white"><FaEnvelope size={20} /></a>
+                </div>
+              </div>
+            </div>
+            
+            {/* Copyright */}
+            <div className=" text-center text-gray-500 text-sm border-t border-gray-600 text-center">
+              &copy; 2025 SkillScale. All Rights Reserved.
+            </div>
+          </footer>
+          
     </>
   );
 };

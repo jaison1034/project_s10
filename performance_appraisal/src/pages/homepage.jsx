@@ -76,7 +76,7 @@ function HomePage() {
 
       {/* Footer */}
       
-      <footer className="bg-gray-900 text-white py-6">
+      <footer className="bg-gray-900 text-white py-2 items-center">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
         {/* Company Info */}
         <div>
@@ -94,20 +94,20 @@ function HomePage() {
               </li>
               <li className="flex items-center">
                 <FaPhone className="mr-2" />
-                +1 (234) 567-890
+                6282645889
               </li>
               <li className="flex items-center">
                 <span className="mr-2">📍</span>
-                <span>123 Business St, Suite 456, City, Country</span>
+                <span>CyberPark, Kozhikode, India</span>
               </li>
             </ul>
           </div>
 
         {/* Contact & Social */}
-        <div>
+        <div className="items-center">
           <h3 className="text-lg font-semibold">Connect With Us</h3>
-          <div className="mt-2 flex justify-center md:justify-start space-x-4">
-            <a href="https://facebook.com" className="text-gray-400 hover:text-white"><FaFacebook size={20} /></a>
+          <div className="mt-6 flex space-x-4 items-center">
+            <a href="https://facebook.com" className="text-gray-400 hover:text-white items-center"><FaFacebook size={20} /></a>
             <a href="https://twitter.com" className="text-gray-400 hover:text-white"><FaTwitter size={20} /></a>
             <a href="https://linkedin.com" className="text-gray-400 hover:text-white"><FaLinkedin size={20} /></a>
             <a href="mailto:info@skillscale.com" className="text-gray-400 hover:text-white"><FaEnvelope size={20} /></a>
@@ -116,7 +116,7 @@ function HomePage() {
       </div>
       
       {/* Copyright */}
-      <div className="mt-4 text-center text-gray-500 text-sm border-t border-gray-600 pt-6 text-center">
+      <div className=" text-center text-gray-500 text-sm border-t border-gray-600 text-center">
         &copy; 2025 SkillScale. All Rights Reserved.
       </div>
     </footer>

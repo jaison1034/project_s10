@@ -186,20 +186,7 @@ const AdminFeedbackPage = () => {
         </div>
 
         {/* Footer */}
-        <footer className="bg-white shadow-lg text-black py-6 mt-6">
-          <Container className="text-center">
-            <p className="mb-4">
-              &copy; 2025 SkillScale. All rights reserved.
-              Contact us:{" "}
-              <a href="mailto:info@skillscale.com" className="text-blue-500">
-                info@skillscale.com
-              </a>
-            </p>
-            <div className="flex justify-center space-x-4">
-              <p className="mb-4">Created By : Jaison T Jacob</p>
-            </div>
-          </Container>
-        </footer>
+        
       </div>
     </div>
   );

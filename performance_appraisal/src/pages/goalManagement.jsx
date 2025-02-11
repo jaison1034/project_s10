@@ -51,7 +51,7 @@ const GoalManagement = () => {
             <NavDropdown
               title={
                 <img
-                  src={img} // Replace with actual image URL
+                  src={img} 
                   alt="Profile"
                   className="rounded-full"
                   width="40"

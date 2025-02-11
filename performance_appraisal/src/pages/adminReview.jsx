@@ -28,7 +28,7 @@ const AdminReviewPage = () => {
         
         {/* Assign Reviews */}
         <div className="p-4 md:p-6 bg-white shadow-lg rounded-lg">
-          <h3 className="text-lg font-semibold text-[#3674B5] mb-4">Assign a Review</h3>
+          <h3 className="text-lg md:text-xl font-semibold text-[#3674B5] mb-4">Assign a Review</h3>
           <select
             className="w-full p-2 border border-gray-300 rounded mb-4"
             value={newReview.employee}
@@ -55,7 +55,7 @@ const AdminReviewPage = () => {
 
         {/* Completed Reviews */}
         <div className="p-4 md:p-6 bg-white shadow-lg rounded-lg">
-          <h3 className="text-lg font-semibold text-[#3674B5] mb-4">✅ Completed Reviews</h3>
+          <h3 className="text-lg md:text-xl font-semibold text-[#3674B5] mb-4">✅ Completed Reviews</h3>
           {employees.filter(emp => emp.reviewed).length > 0 ? (
             <ul>
               {employees.filter(emp => emp.reviewed).map((review, index) => (
@@ -69,7 +69,7 @@ const AdminReviewPage = () => {
 
         {/* Pending Reviews */}
         <div className="p-4 md:p-6 bg-white shadow-lg rounded-lg">
-          <h3 className="text-lg font-semibold text-[#3674B5] mb-4">📅 Pending Reviews</h3>
+          <h3 className="text-lg md:text-xl font-semibold text-[#3674B5] mb-4">📅 Pending Reviews</h3>
           {employees.filter(emp => !emp.reviewed).length > 0 ? (
             <ul>
               {employees.filter(emp => !emp.reviewed).map((emp, index) => (

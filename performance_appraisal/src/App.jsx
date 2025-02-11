@@ -13,6 +13,7 @@ import Analytics from './pages/analyticsRep';
 import GoalA from "./pages/adminGoal";
 import FeedbackA from "./pages/feedbackAdmin";
 import AdminR from "./pages/adminReview";
+
 function App() {
   return (
    <>

@@ -67,8 +67,8 @@ const Analytics = () => {
               id="basic-nav-dropdown"
               align="end"
             >
-              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">🧑‍💼Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100">⬅️Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>
@@ -93,7 +93,7 @@ const Analytics = () => {
         </div>
 
         {/* Performance Chart */}
-        <h2 className="text-2xl font-bold mb-4">Overall Employee Performance</h2>
+        <h2 className="text-3xl font-bold mb-4 text-white ">Overall Employee Performance</h2>
         <div className="w-full h-96 bg-white shadow-md p-4 rounded-lg">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={employeePerformance}>

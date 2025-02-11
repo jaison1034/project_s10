@@ -5,7 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import img from '../assets/images.png';
 import bimg from '../assets/homeb.jpg';
 import simg from '../assets/home.jpg';
-import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone} from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu"; 
 function HomePage() {
   return (
     <>
@@ -49,8 +50,8 @@ function HomePage() {
               id="basic-nav-dropdown"
               align="end"
             >
-              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">🧑‍💼Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100" >⬅️Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>

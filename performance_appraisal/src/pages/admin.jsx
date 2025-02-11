@@ -14,9 +14,9 @@ const AdminDashboard = () => {
 
   const menuItems = [
     { name: "Dashboard", icon: <FaTachometerAlt />, key: "/admin" },
-    { name: "Goal", icon: <FaBullseye />, key: "/admin/goals" },
-    { name: "Feedback", icon: <FaComment />, key: "/admin/feedbacka" },
-    { name: "Review", icon: <MdReviews />, key: "/admin/adminr" },
+    { name: "🎯Goal", key: "/admin/goals" },
+    { name: "📢Feedback",  key: "/admin/feedbacka" },
+    { name: "🌟Review", key: "/admin/adminr" },
   ];
 
   const handleTabClick = (path) => {
@@ -51,8 +51,8 @@ const AdminDashboard = () => {
           {/* Profile Dropdown */}
           <Nav>
             <NavDropdown title={<img src={img} alt="Profile" className="rounded-full" width="40" height="40" />} id="basic-nav-dropdown" align="end">
-              <NavDropdown.Item href="#profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="#profile">🧑‍💼Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/login">⬅️Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>
@@ -83,6 +83,7 @@ const AdminDashboard = () => {
 
         {/* Content Area */}
         <div className="flex-1 p-4 bg-gray-100">
+          <p className="text-4xl text-left">Welcome to the ADMIN PAGE</p>
           <Outlet />
         </div>
       </div>

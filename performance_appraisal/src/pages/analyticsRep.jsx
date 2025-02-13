@@ -9,19 +9,19 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-ic
 import rImg from '../assets/analyticsrep.jpg';
 
 const topPerformers = [
-  { name: "John Doe", rating: 95, position: "Software Engineer" },
-  { name: "Jane Smith", rating: 92, position: "Project Manager" },
-  { name: "Alice Johnson", rating: 90, position: "UX Designer" },
+  { name: "Adwaith", rating: 95, position: "Software Engineer" },
+  { name: "Pranav", rating: 92, position: "Project Manager" },
+  { name: "Mrudul", rating: 90, position: "UX Designer" },
 ];
 
 const employeePerformance = [
-  { name: "John", performance: 95 },
-  { name: "Jane", performance: 92 },
-  { name: "Alice", performance: 90 },
-  { name: "Robert", performance: 85 },
-  { name: "Michael", performance: 82 },
-  { name: "Sarah", performance: 78 },
-  { name: "David", performance: 75 },
+  { name: "Adwaith", performance: 95 },
+  { name: "Pranav", performance: 92 },
+  { name: "Mrudul", performance: 90 },
+  { name: "Sonnet", performance: 85 },
+  { name: "Abel", performance: 82 },
+  { name: "Aben", performance: 78 },
+  { name: "Aslam", performance: 75 },
 ];
 
 const Analytics = () => {

@@ -6,7 +6,7 @@ import bImg from '../assets/review.jpg';
 import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 const ReviewPage = () => {
   const [completedReviews, setCompletedReviews] = useState([]);
-  const [pendingReviews, setPendingReviews] = useState(["John Doe", "Jane Smith"]);
+  const [pendingReviews, setPendingReviews] = useState(["Adwaith", "Pranav"]);
   const [newReview, setNewReview] = useState({ employee: "", feedback: "" });
 
   const handleReviewSubmit = () => {

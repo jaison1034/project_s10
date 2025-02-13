@@ -13,6 +13,12 @@ import Analytics from './pages/analyticsRep';
 import GoalA from "./pages/adminGoal";
 import FeedbackA from "./pages/feedbackAdmin";
 import AdminR from "./pages/adminReview";
+import Manager from "./pages/manager";
+import AttendanceM from "./pages/attendance_manager";
+import EmpV from "./pages/employee_view";
+import MaR from "./pages/manager_review";
+import MeV from "./pages/Manager_empV";
+import Pro from "./pages/profile";
 
 function App() {
   return (
@@ -31,12 +37,23 @@ function App() {
       <Route path="/Analytics" element={<Analytics />} />
       <Route path="/goala" element={<GoalA />} />
      <Route path="/feedbacka" element={<FeedbackA />} />
+     <Route path="/prof" element={<Pro />} />
      <Route path="/admin" element={<AdminDashboard />}>
           <Route path="goals" element={<GoalA />} />
-          <Route path="feedbacka" element={<FeedbackA />} />
+          <Route path="empv" element={<EmpV />} />
           <Route path="adminr" element={<AdminR />} />
+          
         </Route>
+        <Route path="/manager" element={<Manager />}>
+          <Route path="goals" element={<GoalA />} />
+          <Route path="feedbacka" element={<FeedbackA />} />
+          <Route path="marev" element={<MaR />}/>
+          <Route path="attenm" element={<AttendanceM />}/>
+          <Route path="mempv" element={<MeV />}/>
+        </Route>
+        <Route path="/manager" element={<Manager />}/>
     </Routes>
+
    </Router>
    </>
   )

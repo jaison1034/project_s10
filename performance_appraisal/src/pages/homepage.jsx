@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import img from '../assets/images.png';
 import bimg from '../assets/homeb.jpg';
 import simg from '../assets/home.jpg';
-import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone} from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone, FaChartLine} from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu"; 
 function HomePage() {
   return (
@@ -14,19 +14,8 @@ function HomePage() {
       <Navbar className="bg-white shadow-md p-0 m-0">
         <Container fluid>
           <Navbar.Brand href="/" className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#3674B5"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-8 h-8"
-            >
-              <path d="M12 2L2 22h20L12 2z" />
-              <path d="M12 6l6 12H6l6-12z" />
-            </svg>
+            
+            <FaChartLine className="text-blue-600 text-3xl" />
             <h1 className="text-2xl font-bold text-[#3674B5] ml-2">SkillScale</h1>
           </Navbar.Brand>
           <Nav className="ml-auto flex items-center">
@@ -50,7 +39,7 @@ function HomePage() {
               id="basic-nav-dropdown"
               align="end"
             >
-              <NavDropdown.Item href="#profile" className="text-gray-700 hover:bg-gray-100">🧑‍💼Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/prof" className="text-gray-700 hover:bg-gray-100">🧑‍💼Profile</NavDropdown.Item>
               <NavDropdown.Item href="/login" className="text-gray-700 hover:bg-gray-100" >⬅️Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>

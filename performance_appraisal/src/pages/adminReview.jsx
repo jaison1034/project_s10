@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const AdminReviewPage = () => {
   const [employees, setEmployees] = useState([
-    { name: "John Doe", reviewed: false, feedback: "" },
-    { name: "Jane Smith", reviewed: false, feedback: "" },
-    { name: "David Wilson", reviewed: false, feedback: "" }
+    { name: "Adwaith", reviewed: false, feedback: "" },
+    { name: "Pranav", reviewed: false, feedback: "" },
+    { name: "Mrudul", reviewed: false, feedback: "" }
   ]);
 
   const [newReview, setNewReview] = useState({ employee: "", feedback: "" });

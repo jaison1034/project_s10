@@ -2,7 +2,8 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import img from '../assets/images.png';
-import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaPhone ,FaChartLine} from "react-icons/fa";
+
 
 const Button = ({ children, onClick }) => (
   <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all" onClick={onClick}>
@@ -20,15 +21,15 @@ const Progress = ({ value }) => (
 );
 
 const employeeAppraisal = {
-  Name: "John Doe",
+  Name: "Adwaith",
   Department: "Software Engineering",
-  Position: "Senior Developer",
+  Position: "Software Engineer",
   GoalsCompleted: 5,
   TotalGoals: 6,
   SelfAssessment: "Completed",
   Attendance: "95%",
   PerformanceScore: 85,
-  Feedback: "John has consistently met deadlines and delivered high-quality code.",
+  Feedback: "Adwaith has consistently met deadlines and delivered high-quality code.",
   ImprovementSuggestions: "Improve time management and explore new tech trends."
 };
 
@@ -60,19 +61,8 @@ const AppraisalDashboard = () => {
       <Navbar className="bg-white shadow-sm p-0 m-0">
         <Container fluid>
           <Navbar.Brand href="/" className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#3674B5"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-8 h-8"
-            >
-              <path d="M12 2L2 22h20L12 2z" />
-              <path d="M12 6l6 12H6l6-12z" />
-            </svg>
+            
+            <FaChartLine className="text-blue-600 text-3xl" />
             <h1 className="text-2xl font-bold text-[#3674B5] ml-2">SkillScale</h1>
           </Navbar.Brand>
           <Nav className="ml-auto flex items-center">

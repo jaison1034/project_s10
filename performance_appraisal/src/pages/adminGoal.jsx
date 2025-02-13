@@ -4,8 +4,8 @@ import img from '../assets/images.png';
 
 const AdminGoalManagement = () => {
   const [goals, setGoals] = useState([
-    { id: 1, title: "Complete Project Report", dueDate: "2025-02-10", employeesCompleted: ["Alice", "Bob"], employeesPending: ["Charlie"] },
-    { id: 2, title: "Submit Performance Review", dueDate: "2025-02-15", employeesCompleted: ["David"], employeesPending: ["Eve", "Frank"] },
+    { id: 1, title: "Complete Project Report", dueDate: "2025-02-10", employeesCompleted: ["Adwaith", "Pranav"], employeesPending: ["Abel"] },
+    { id: 2, title: "Submit Performance Review", dueDate: "2025-02-15", employeesCompleted: ["Mrudul"], employeesPending: ["Aben", "Sonnet"] },
   ]);
 
   const [newGoal, setNewGoal] = useState({ title: "", dueDate: "" });

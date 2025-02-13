@@ -11,9 +11,9 @@ const AdminFeedbackPage = () => {
   ]);
 
   const [employees, setEmployees] = useState([
-    { id: 1, name: "John Doe", department: "Engineering", assessmentStatus: "completed" },
-    { id: 2, name: "Jane Smith", department: "HR", assessmentStatus: "not completed" },
-    { id: 3, name: "Alice Johnson", department: "Marketing", assessmentStatus: "not completed" },
+    { id: 1, name: "Adwaith", department: "Engineering", assessmentStatus: "completed" },
+    { id: 2, name: "Pranav", department: "HR", assessmentStatus: "not completed" },
+    { id: 3, name: "Mrudul", department: "Marketing", assessmentStatus: "not completed" },
   ]);
 
   const [questions, setQuestions] = useState([

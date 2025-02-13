@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaEnvelope, FaLock, FaChevronDown } from "react-icons/fa";
+import { User, Mail } from "lucide-react";
 import img from '../assets/people.avif';
 
 const Registration = () => {
@@ -26,9 +27,10 @@ const Registration = () => {
       [name]: "",
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     if (formData.password !== formData.confirmPassword) {
       setErrors((prev) => ({
         ...prev,
@@ -36,32 +38,33 @@ const Registration = () => {
       }));
       return;
     }
-  
-    // Retrieve existing users from local storage
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  
+
+    // Choose the storage key based on the role
+    const storageKey = formData.role === "manager" ? "managers" : "employees";
+
+    // Retrieve existing users from local storage based on role
+    const existingUsers = JSON.parse(localStorage.getItem(storageKey)) || [];
+
     // Add the new user to the list
     const updatedUsers = [...existingUsers, formData];
-  
+
     // Save updated users list to local storage
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-  
+    localStorage.setItem(storageKey, JSON.stringify(updatedUsers));
+
     alert("Registration successful!");
-  
+
     // Navigate to login page after registration
     navigate("/login");
   };
-  
 
   return (
     <div
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center"
       style={{
         backgroundImage: `url(${img})`,
-        filter: "brightness(1.0)", // Adjust brightness
+        filter: "brightness(1.0)",
       }}
     >
-      {/* Branding Logo */}
       <div className="absolute top-6 left-6 flex items-center space-x-2 z-10 ml-30">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -79,18 +82,14 @@ const Registration = () => {
         <h1 className="text-3xl font-bold text-white ml-2">SkillScale</h1>
       </div>
 
-
-
-      {/* Content container */}
       <div className="relative z-10 w-full max-w-md p-8 bg-white bg-opacity-80 rounded-xl shadow-xl text-left mt-20 ml-200">
         <h2 className="text-2xl font-semibold text-[#3674B5] mb-6 text-center">Register</h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Full Name */}
           <div className="relative">
             <label className="block text-[#3674B5] font-medium mb-2">Full Name</label>
             <div className="relative">
-              <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#3674B5]" />
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#3674B5]" />
               <input
                 type="text"
                 name="fullName"
@@ -103,11 +102,10 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* Email Address */}
           <div className="relative">
             <label className="block text-[#3674B5] font-medium mb-2">Email Address</label>
             <div className="relative">
-              <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#3674B5]" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#3674B5]" />
               <input
                 type="email"
                 name="email"
@@ -120,7 +118,6 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* Password */}
           <div className="relative">
             <label className="block text-[#3674B5] font-medium mb-2">Password</label>
             <div className="relative">
@@ -137,7 +134,6 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* Confirm Password */}
           <div className="relative">
             <label className="block text-[#3674B5] font-medium mb-2">Confirm Password</label>
             <div className="relative">
@@ -157,7 +153,6 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* Role */}
           <div className="relative">
             <label className="block text-[#3674B5] font-medium mb-2">Role</label>
             <div className="relative">
@@ -176,7 +171,21 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
+          {/* Conditional rendering of role-specific forms */}
+          {formData.role === "manager" && (
+            <div className="relative">
+              <label className="block text-[#3674B5] font-medium mb-2">Department</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  name="managerSpecificField"
+                  placeholder="Enter manager-specific info"
+                  className="w-full px-10 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3674B5] transition-all"
+                />
+              </div>
+            </div>
+          )}
+
           <button
             type="submit"
             className="w-full bg-[#3674B5] text-white py-3 rounded-lg hover:bg-[#285a8d] transition-all"
@@ -185,7 +194,6 @@ const Registration = () => {
           </button>
         </form>
 
-        {/* Login Link */}
         <p className="text-center mt-6 text-[#3674B5]">
           Already have an account?{" "}
           <Link to="/login" className="font-semibold underline hover:text-[#285a8d] transition-all">

@@ -2,15 +2,16 @@ import './Login.css';
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../assets/login_back.jpg'; // Ensure this image is high-quality
-import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { FaEyeSlash, FaEye,FaChartLine } from "react-icons/fa";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
     fullName: "",
     password: "",
+    role: "", // Added role state
   });
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const navigate = useNavigate(); // To redirect after login
 
   // Handle input changes
@@ -26,31 +27,46 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Predefined admin credentials
+    // Hardcoded Admin credentials
     const adminCredentials = {
-      fullName: "admin",
-      password: "admin123"
+      username: "admin", // Admin username
+      password: "admin123", // Admin password
     };
 
-    if (loginData.fullName === adminCredentials.fullName && loginData.password === adminCredentials.password) {
+    // Check if the user is trying to log in as admin
+    if (loginData.role === "admin" && loginData.fullName === adminCredentials.username && loginData.password === adminCredentials.password) {
       alert("Admin Login Successful!");
-      localStorage.setItem("loggedInUser", JSON.stringify(adminCredentials));
       navigate("/admin"); // Redirect to admin dashboard
       return;
     }
 
-    // Check local storage for users
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    // Check local storage for users based on role
+    const storageKey = loginData.role === "manager" ? "managers" : loginData.role === "employee" ? "employees" : null;
+
+    if (!storageKey) {
+      alert("Please select a valid role!");
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem(storageKey)) || [];
     const user = users.find(
       (u) => u.fullName === loginData.fullName && u.password === loginData.password
     );
 
     if (user) {
       alert("Login Successful!");
+
+      // Save logged-in user data in local storage
       localStorage.setItem("loggedInUser", JSON.stringify(user));
-      navigate("/home"); // Redirect to user dashboard
+
+      // Redirect based on role
+      if (loginData.role === "manager") {
+        navigate("/manager"); // Redirect to manager dashboard
+      } else if (loginData.role === "employee") {
+        navigate("/home"); // Redirect to employee dashboard
+      }
     } else {
-      alert("Invalid name or password!");
+      alert("Invalid name, password, or role!");
     }
   };
 
@@ -59,19 +75,8 @@ const Login = () => {
       {/* SkillScale Branding (Top Left Corner) */}
       <div className="absolute top-6 left-6 flex items-center space-x-2 z-10">
         {/* Placeholder Logo (SVG) */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#3674B5"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-8 h-8"
-        >
-          <path d="M12 2L2 22h20L12 2z" />
-          <path d="M12 6l6 12H6l6-12z" />
-        </svg>
+        
+        <FaChartLine className="text-blue-600 text-3xl" />
         <h1 className="text-2xl font-bold text-[#3674B5]">SkillScale</h1>
       </div>
 
@@ -101,6 +106,22 @@ const Login = () => {
                 className="w-full px-4 py-3 border border-[#A1E3F9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#578FCA] transition-all"
                 required
               />
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-[#3674B5] font-medium mb-2">Role:</label>
+              <select
+                name="role"
+                value={loginData.role}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-[#A1E3F9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#578FCA] transition-all"
+                required
+              >
+                <option value="">Select Role</option>
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Admin</option> {/* Added Admin option */}
+              </select>
             </div>
 
             <div className="mb-6 relative">
